@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -24,12 +25,14 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <picture className="inline-block relative  w-8 h-8">
-        <img className="w-full h-full" src="/bag-icon.svg" alt="" />
-        <p className="text-xs top-0 right-[-4px] w-fit absolute p-0.5 px-1.5 text-center text-white bg-zinc-800 rounded-full">
-          {cartProduct.length > 0 ? cartProduct.length : 0}
-        </p>
-      </picture>
+      <Link href={'/cart/page'}>
+        <picture className="inline-block relative  w-8 h-8">
+          <img className="w-full h-full" src="/bag-icon.svg" alt="" />
+          <p className="text-xs top-0 right-[-4px] w-fit absolute p-0.5 px-1.5 text-center text-white bg-zinc-800 rounded-full">
+            {cartProduct.length > 0 ? cartProduct.length : 0}
+          </p>
+        </picture>
+      </Link>
     </header>
   );
 };
